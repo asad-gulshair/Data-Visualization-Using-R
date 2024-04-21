@@ -1,0 +1,119 @@
+---
+title: "data visualization"
+author: "asad gulshair"
+date: "2024-03-12"
+output: html_document
+---
+
+```{r}
+data(mtcars)
+```
+
+
+```{r}
+mtcars$cyl
+
+
+```
+```{r}
+cyl_cat<- table(mtcars$cyl)
+
+barplot(cyl_cat)
+```
+
+```{r}
+cyl_cat<- table(mtcars$cyl)
+cyl_cat
+
+```
+
+```{r}
+barplot(cyl_cat,main="absolute frequency",col=c("blue","red"))
+```
+```{r}
+barplot(cyl_cat,main="absolute frequency",col=c("blue","red","green"))
+
+```
+```{r}
+head(mtcars)
+```
+
+```{r}
+my_table<-table(mtcars$cyl)
+my_table
+```
+
+### for frequency 
+```{r}
+barplot(my_table,main="absolute frequency",col=c("blue","red"))
+my_barplot<-barplot(my_table,main="absolute frequency",col=c("blue","red","green"))
+text(my_barplot,my_table)
+text(my_barplot,my_table/2,labels=my_table)
+
+
+```
+```{r}
+barplot(my_table,main="absolute frequency",col=c("blue","red"),ylim=c(0,15))
+
+```
+
+
+### for table proportion
+```{r}
+p.table<-barplot(prop.table(my_table)*100,main="relative frequency(%)",col=rainbow(3))
+my_table=prop.table(my_table)*100
+text(p.table,my_table,labels =my_table)
+#text(p.table,my_table+1,labels =my_table)
+
+```
+
+
+
+### for making border along bars
+```{r}
+barplot(my_table,main="absolute frequency",border="red",xlab="number of cyl",ylab="frequency")
+
+
+```
+
+
+```{r}
+```
+
+
+```{r}
+barplot(my_table,names.arg=c("four","six","eight"),col=c("brown"))
+```
+
+
+```{r}
+barplot(my_table,names.arg=c("four","six","eight"),col=c("yellow"),width=c(0.2,0.4,0.6))
+
+
+```
+
+
+```{r}
+barplot(my_table,names.arg=c("four","six","eight"),col=c("brown"),space = c(1,1.1,0.5))
+
+```
+
+
+### for making multiple graph in on frame
+```{r}
+par(mfrow=c(2,2))
+barplot(my_table,names.arg=c("four","six","eight"),col=c("yellow"),width=c(0.2,0.4,0.6))
+barplot(my_table,names.arg=c("four","six","eight"),col=c("brown"),space = c(1,1.1,0.5))
+barplot(my_table,names.arg=c("four","six","eight"),col=c("brown"))
+
+
+```
+
+
+```{r}
+barplot(my_table,names.arg=c("four","six","eight"),col=c("brown"))
+barplot(my_table,names.arg=c("four","six","eight"),col=c("brown"),space = c(1,1.1,0.5))
+
+par(mfrow=c(1,1))
+```
+

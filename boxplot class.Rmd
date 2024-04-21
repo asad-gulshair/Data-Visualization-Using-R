@@ -1,0 +1,36 @@
+---
+title: "Boxplot"
+author: "asad gulshair"
+date: "2024-03-26"
+output: html_document
+---
+
+## BOXCHART
+
+```{r}
+b<-mtcars$disp
+
+```
+
+```{r}
+hist(b)
+boxplot(b,main="boxplot",col="brown")
+```
+
+```{r}
+hist(b)
+par(new=TRUE)
+boxplot(b,main="boxplot",col="brown")
+
+```
+
+
+```{r}
+hist(b,prob=TRUE)
+x<-seq(min(b),max(b),length=50)
+p<-dnorm(x,mean=mean(b),sd=sd(b))
+lines(x,p,col="blue",lwd=2)
+par(new=TRUE)
+boxplot(b,col="red")
+```
+

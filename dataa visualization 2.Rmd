@@ -1,0 +1,85 @@
+---
+title: "data vis . data frame"
+author: "asad gulshair"
+date: "2024-03-18"
+output: html_document
+---
+
+```{r}
+df<-data.frame(car_color=c("red","green","black","white","blue"),count=c(13,15,17,18,20))
+barplot(height = df$count,names=df$car_color,col=c("red","green","black","white","blue"))
+```
+
+```{r}
+data("mtcars")
+head(mtcars)
+```
+
+```{r}
+barplot(mtcars$wt)
+```
+this is the wrong way above
+
+### for making categories
+```{r}
+summary(mtcars$wt)
+```
+
+```{r}
+barplot(table(cut(mtcars$wt,breaks=seq(1,6,by=1)
+                  )))
+```
+
+cut used to divide in groups , and break is used to end point
+
+
+```{r}
+
+```
+
+```{r}
+my_table<-table(mtcars$cyl)
+my_table
+```
+
+```{r}
+barplot(my_table,main="absolute value", legend.text = c(rownames(my_table)),col = c("red","black","blue"))
+```
+
+### Multiple barchart
+```{r}
+multiple_table<-table(mtcars$cyl,mtcars$am)
+multiple_table
+```
+
+```{r}
+```
+
+
+```{r}
+barplot(multiple_table)
+```
+
+
+```{r}
+barplot(multiple_table,beside=TRUE)
+```
+
+```{r}
+barplot(multiple_table,beside=TRUE,xlab = "multiple barchar",ylab= "frequency",legend.text = c("four cly","six cly","eight cly"),col=c("red","brown","black"))
+
+```
+
+
+```{r}
+barplot(multiple_table,beside=TRUE ,xlab = "multiple barchar",ylab= "frequency",legend.text = c("four cly","six cly","eight cly"),col=c("red","brown","black"),space = c(0.5,0.8))
+
+```
+
+#### mosaic statement will give compnenet little space and for this we need graphics
+mosaicplot
+
+```{r}
+mosaicplot(multiple_table,col=c("red","brown","black"))
+```
+

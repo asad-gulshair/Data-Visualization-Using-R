@@ -1,0 +1,127 @@
+---
+title: "histogram"
+author: "asad gulshair"
+date: "2024-03-21"
+output: html_document
+---
+
+##Histogram
+
+```{r}
+data("mtcars")
+```
+
+```{r}
+d<-mtcars$disp
+```
+
+
+```{r}
+d
+```
+
+
+```{r}
+hist(d)
+```
+
+```{r}
+hist(d,main="my Histogram", col="brown",prob=TRUE)
+```
+
+```{r}
+hist(d,main="my Histogram", col="brown",prob=TRUE)
+grid(nx=NA,ny=NULL,lty=2,col="black",lwd=1)
+
+```
+
+```{r}
+hist(d,main="my Histogram", col="brown",breaks=170)
+
+```
+
+
+```{r}
+n<-mtcars$qsec
+```
+
+```{r}
+n
+```
+
+```{r}
+hist(n,breaks=3)
+```
+if we apply 3 breaks then 5 interval form that's mean interval are not equal and it will take closely equal interval to present.
+
+after this check pretty argument.
+
+
+```{r}
+hist(n,breaks=6)
+
+```
+
+```{r}
+summary(d)
+```
+
+
+```{r}
+d1<-mtcars$qsec
+d2<-mtcars$wt
+
+```
+
+
+```{r}
+hist(d1,main="two variable histogram")
+hist(d2, col="brown",add=TRUE)
+```
+
+```{r}
+summary(d1)
+```
+
+```{r}
+summary(d2)
+```
+
+generate random number from normal distribution
+
+```{r}
+e1<-rnorm(100,mean = 0,sd=1)
+e2<-rnorm(100,mean = 1,sd=1)
+```
+
+
+```{r}
+hist(e1)
+hist(e2,col="brown",add=T)
+```
+
+
+```{r}
+hist(d,prob=TRUE)
+```
+
+
+```{r}
+hist(d)
+x<-seq(min(d),max(d),length=50)
+p<-dnorm(x,mean=mean(d),sd=sd(d))
+lines(x,p,col="brown",lwd=2)
+
+```
+
+dnorm make probalility
+
+```{r}
+```
+
+for making line on histogram
+
+
+
+
+

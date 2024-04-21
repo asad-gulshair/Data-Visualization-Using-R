@@ -1,0 +1,50 @@
+---
+title: "Untitled"
+output: html_document
+date: "2024-03-21"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+data<-data(mtcars)
+d<-mtcars$disp
+hist(d, main = "My histogram", probability = TRUE,col = "darkorange")
+grid(nx = NA, ny = NULL, lty = 2, col = "black", lwd = 1)
+
+```
+```{r}
+summary(d)
+sort(d)
+hist(d,breaks = 5)
+```
+```{r}
+e<- mtcars$qsec
+hist(e,breaks=3)
+```
+
+
+```{r}
+summary(e)
+```
+```{r}
+d1<- mtcars$qsec
+d2<- mtcars$wt
+hist(d1,main="two variable Histogram")
+hist(d2,col="red",add=TRUE)
+summary(d2)
+summary(d1)
+e1<- rnorm(100,mean=0,sd=1)
+e2<- rnorm(100,mean=1,sd=1)
+hist(e1,col="blue")
+hist(e2,col="red",add=TRUE)
+```
+```{r}
+hist(d1,probability = TRUE)
+x<- seq(min(d1),max(d1),length=50)
+p<- dnorm(x,mean=mean(d1),sd=sd(d1))
+lines(x,p,col="black",lwd=2,lty=3)
+```
+

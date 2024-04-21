@@ -1,0 +1,135 @@
+---
+title: "Untitled"
+output: html_document
+date: "2024-03-26"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+boxplot(e)
+```
+```{r}
+hist(e,prob=TRUE)
+x<- seq(min(e),max(e),length=50)
+p<- dnorm(x,mean=mean(e),sd=sd(e))
+lines(x,p,col="black",lwd=2,lty=3)
+par(new=TRUE)
+boxplot(e,col="red")
+```
+```{r}
+par(mfrow=c(1,2))
+pie(carb.count,labels = c("one","two","three","four","five","six"),cex=1.5,
+    col = heat.colors(6),lty=3,density = 70,angle = 45,edges = 10)
+    legend("topright",legend = c("one","two","three","four","five","six"),
+           fill = heat.colors(6))
+
+
+
+
+carb.count<-table(mtcars$carb)
+pie(carb.count,clockwise = TRUE,col=rainbow(6),angle = 90,
+    labels = c("a","b","c","d","e","f"))
+    legend("topright", legend = c("a","b","c","d","e","f"), 
+       fill = rainbow(6))
+
+par(mfrow=c(1,1))
+```
+```{r}
+library(plotrix)
+pie3D(carb.count,labels = c("a","b","c","d","e","f"),col = rainbow(6),
+      labelcol = "white",border = "black",explode = 0.5)
+getwd()
+
+
+pdf("myplot2.pdf")
+pie3D(carb.count,labels = c("a","b","c","d","e","f"),col = rainbow(6),
+      labelcol = "white",border = "black",explode = 0.5)
+pie3D(carb.count)
+pie3D(carb.count)
+dev.off()
+
+```
+```{r}
+data("attitude")
+x1<-attitude$learning
+summary(x1)
+d1<-table(cut(x1,seq(30,80,length=5)))
+barplot(d1)
+pie(d1)
+pie3D(d1,labels = c("A","B","C","D"),col = rainbow(4),explode = 0.25)
+    legend("topright", legend = c("A","B","C","D"), 
+       fill = rainbow(4))
+``` 
+    
+```{r}   
+summary(attitude$advance)
+x2<-attitude$advance
+d2<-table(cut(x2,seq(20,80,length=6)))
+
+pie3D(d2,labels = c("cat 1","cat 2","cat 3","cat 4","cat 5")
+      ,col = c("green","blue","red","black","pink"))
+    
+      legend("topright", legend = c("cat 1","cat 2","cat 3","cat 4","cat 5"), 
+       fill = c("green","blue","red","black","pink"))
+```
+```{r}
+par(mfrow=c(3,3))
+h<-attitude$rating
+hist(h,probability = TRUE,col = "purple",main = "hist of rating")
+x<- seq(min(h),max(h),length=10)
+p<- dnorm(x,mean=mean(h),sd=sd(h))
+lines(x,p,col="red",lwd=1,lty=1)
+
+
+h<-attitude$complaints
+hist(h,probability = TRUE,col = "purple",main = "hist of complaints")
+x<- seq(min(h),max(h),length=10)
+p<- dnorm(x,mean=mean(h),sd=sd(h))
+lines(x,p,col="red",lwd=1,lty=1)
+
+
+h<-attitude$privileges
+hist(h,probability = TRUE,col = "purple",main = "hist of priviliges")
+x<- seq(min(h),max(h),length=10)
+p<- dnorm(x,mean=mean(h),sd=sd(h))
+lines(x,p,col="red",lwd=1,lty=1)
+
+
+
+h<-attitude$learning
+hist(h,probability = TRUE,col = "purple",main = "hist of learning")
+x<- seq(min(h),max(h),length=10)
+p<- dnorm(x,mean=mean(h),sd=sd(h))
+lines(x,p,col="red",lwd=1,lty=1)
+
+
+h<-attitude$raises
+hist(h,probability = TRUE,col = "purple",main = "hist of raises")
+x<- seq(min(h),max(h),length=10)
+p<- dnorm(x,mean=mean(h),sd=sd(h))
+lines(x,p,col="red",lwd=1,lty=1)
+
+
+h<-attitude$critical
+hist(h,probability = TRUE,col = "purple",main = "hist of critical")
+x<- seq(min(h),max(h),length=10)
+p<- dnorm(x,mean=mean(h),sd=sd(h))
+lines(x,p,col="red",lwd=1,lty=1)
+
+
+h<-attitude$advance
+hist(h,probability = TRUE,col = "purple",main = "hist of advance",)
+x<- seq(min(h),max(h),length=10)
+p<- dnorm(x,mean=mean(h),sd=sd(h))
+lines(x,p,col="red",lwd=1,lty=1)
+
+
+par(mfrow=c(1,1))
+```
+
+
+
+
